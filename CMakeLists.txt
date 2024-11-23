@@ -16,7 +16,7 @@ option(PRODUCTION_BUILD "Make this a production build!" OFF)
 set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Release>:Release>")
 set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 
-set(CMAKE_INTERPROCEDURAL_OPTIMIZATION FALSE) #link time optimization
+set(CMAKE_INTERPROCEDURAL_OPTIMIZATION TRUE) #link time optimization
 
 # Ensure SFML is built as static libraries
 set(BUILD_SHARED_LIBS OFF CACHE BOOL "Build SFML as static libraries" FORCE)
