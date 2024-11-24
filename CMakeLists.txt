@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 3.16)
 set(CMAKE_CXX_STANDARD 17)
 
 #! ! ! ! ! ! !
-#set this to true to ship the game!
+#set this to 'ON' to ship the game!
 #basically this will change the RESOURCES_PATH to be the local path
 #! ! ! ! ! ! !
 #DELETE THE OUT FOLDER AFTER CHANGING THIS BECAUSE VISUAL STUDIO DOESN'T SEEM TO RECOGNIZE THIS CHANGE AND REBUILD!
@@ -62,8 +62,7 @@ else()
 
 endif()
 
-target_sources("${CMAKE_PROJECT_NAME}" PRIVATE ${MY_SOURCES} )
-
+target_sources("${CMAKE_PROJECT_NAME}" PRIVATE ${MY_SOURCES})
 
 if(MSVC) # If using the VS compiler...
 
