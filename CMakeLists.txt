@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 3.16)
 set(CMAKE_CXX_STANDARD 17)
 
 #! ! ! ! ! ! !
-#set this to 'ON' to ship the game!
+#set this to true to ship the game!
 #basically this will change the RESOURCES_PATH to be the local path
 #! ! ! ! ! ! !
 #DELETE THE OUT FOLDER AFTER CHANGING THIS BECAUSE VISUAL STUDIO DOESN'T SEEM TO RECOGNIZE THIS CHANGE AND REBUILD!
@@ -16,7 +16,7 @@ option(PRODUCTION_BUILD "Make this a production build!" OFF)
 set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Release>:Release>")
 set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 
-set(CMAKE_INTERPROCEDURAL_OPTIMIZATION TRUE) #link time optimization
+set(CMAKE_INTERPROCEDURAL_OPTIMIZATION FALSE) #link time optimization
 
 # Ensure SFML is built as static libraries
 set(BUILD_SHARED_LIBS OFF CACHE BOOL "Build SFML as static libraries" FORCE)
@@ -29,6 +29,8 @@ add_compile_options(/arch:AVX2) #make sure SIMD optimizations take place
 endif()
 
 project(tEngine)
+
+
 
 
 #Add SFML, and here you would add other libraries if needed!
@@ -62,7 +64,8 @@ else()
 
 endif()
 
-target_sources("${CMAKE_PROJECT_NAME}" PRIVATE ${MY_SOURCES})
+target_sources("${CMAKE_PROJECT_NAME}" PRIVATE ${MY_SOURCES} )
+
 
 if(MSVC) # If using the VS compiler...
 
