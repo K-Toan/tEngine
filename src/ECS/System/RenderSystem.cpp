@@ -1,12 +1,11 @@
 #include "RenderSystem.hpp"
-#include "../Component/Sprite.hpp"
-#include "../Component/Transform2D.hpp"
 #include "SFML/Graphics.hpp"
 
 namespace tEngine
 {
     void RenderSystem::Render(sf::RenderWindow& window)
     {
+        window.clear();
         //for (auto& entity : entities)
         //{
         //    auto spriteComponent = entity->GetComponent<Sprite>();
@@ -17,6 +16,7 @@ namespace tEngine
         //        window.draw(spriteComponent->sprite);
         //    }
         //}
+        window.display();
     }
 
     void RenderSystem::Update(float deltaTime)

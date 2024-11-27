@@ -43,8 +43,6 @@ namespace tEngine
 
 	void Game::Render()
 	{
-		renderSystem.Update(deltaTime);
-		window.clear();
-		window.display();
+		renderSystem.Render(window);
 	}
 }
