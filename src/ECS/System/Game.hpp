@@ -40,7 +40,7 @@ namespace tEngine
 		void Initialize();
 		void Run();
 		void HandleEvents();
-		void Update();
+		void Update(float deltaTime);
 		void Render();
 	};
 }

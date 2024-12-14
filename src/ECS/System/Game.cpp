@@ -1,20 +1,29 @@
 #include "Game.hpp"
 
+#include <iostream>
+#include <string>
+
 namespace tEngine
 {
 	void Game::Initialize()
 	{
 		window.create(sf::VideoMode(windowWidth, windowHeight), windowName);
-		window.setFramerateLimit(60);
+
+		// do not use this method
+		// window.setFramerateLimit(60);
 	}
 
 	void Game::Run()
 	{
+		float deltaTime = 0.0f;
+
 		// main game loop
 		while (isRunning)
 		{
+			deltaTime = clock.restart().asSeconds();
+
 			HandleEvents();
-			Update();
+			Update(deltaTime);
 			Render();
 		}
 	}
@@ -36,7 +45,7 @@ namespace tEngine
 		inputSystem.Update(deltaTime);
 	}
 
-	void Game::Update()
+	void Game::Update(float deltaTime)
 	{
 
 	}
